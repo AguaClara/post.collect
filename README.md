@@ -1,29 +1,3 @@
-# collect
+This is a fork of the [ODK Collect app](https://github.com/opendatakit/collect) and thus should be regularly updated and tested when the ODK Collect app is updated.
 
-This project is __*actively maintained*__
-
-It is the ODK 1.0 Android application.
-
-The developer [wiki](https://github.com/opendatakit/opendatakit/wiki) (including release notes) and
-[issues tracker](https://github.com/opendatakit/opendatakit/issues) are located under
-the [**opendatakit**](https://github.com/opendatakit/opendatakit) project.
-
-The Google group for software engineering questions is: [opendatakit-developers@](https://groups.google.com/forum/#!forum/opendatakit-developers)
-
-## Setting up your environment
-
-This project depends upon the gradle-config and google-play-services projects
-
-
-        |-- odk
-            |-- gradle-config
-            |-- google-play-services
-            |-- collect
-
-The `gradle-config` project should be checked out at the tag number declared at the 
-top of the `collect/settings.gradle` file.
-
-The `google-play-services` project should be pulled and at the tip.
-
-Then, import the `collect/build.gradle` file into Android Studio.
-
+Currently, the operators use the [regular ODK Collect app](https://play.google.com/store/apps/details?id=org.odk.collect.android&hl=en) rather than this fork. However, with a fork, we could make installation simpler, eliminate some of the unneccessary options and automatically update the forms on the operators' local device. 
