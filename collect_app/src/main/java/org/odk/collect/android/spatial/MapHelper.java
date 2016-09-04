@@ -1,3 +1,17 @@
+/*
+ * Copyright (C) 2015 Nafundi
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 package org.odk.collect.android.spatial;
 
 /**
@@ -57,6 +71,8 @@ public class MapHelper {
 
 
     public MapHelper(Context pContext,GoogleMap pGoogleMap){
+        this.mGoogleMap = null;
+        this.mOsmMap = null;
         context = pContext;
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         offilineOverlays = getOfflineLayerList();
@@ -65,6 +81,8 @@ public class MapHelper {
     }
 
     public MapHelper(Context pContext,MapView pOsmMap,IRegisterReceiver pIregisterReceiver){
+        this.mGoogleMap = null;
+        this.mOsmMap = null;
         context = pContext;
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         offilineOverlays = getOfflineLayerList();
@@ -110,17 +128,16 @@ public class MapHelper {
     }
 
     public static String[] getOfflineLayerList() {
-        // TODO Auto-generated method stub
-        File files = new File(Collect.OFFLINE_LAYERS);
+        File[] files = new File(Collect.OFFLINE_LAYERS).listFiles();
         ArrayList<String> results = new ArrayList<String>();
         results.add(no_folder_key);
-        String[] overlay_folders =  files.list();
-        for(int i =0;i<overlay_folders.length;i++){
-            results.add(overlay_folders[i]);
+        for (File f : files) {
+            if (f.isDirectory() && !f.isHidden()) {
+                results.add(f.getName());
+            }
         }
-        String[] finala = new String[results.size()];
-        finala = results.toArray(finala);
-        return finala;
+
+        return results.toArray(new String[0]);
     }
     public void showLayersDialog(){
         AlertDialog.Builder layerDialod = new AlertDialog.Builder(context);

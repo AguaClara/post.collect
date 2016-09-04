@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2011 University of Washington
+ * Copyright (C) 2016 Nafundi
  *
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
  * in compliance with the License. You may obtain a copy of the License at
@@ -439,7 +439,7 @@ public class GeoShapeGoogleMapActivity extends FragmentActivity implements Locat
     public void showZoomDialog() {
         if (zoomDialog == null) {
             AlertDialog.Builder p_builder = new AlertDialog.Builder(this);
-            p_builder.setTitle(getString(R.string.fly_to_where));
+            p_builder.setTitle(getString(R.string.zoom_to_where));
             p_builder.setView(zoomDialogView)
                     .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {

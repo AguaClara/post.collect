@@ -1,3 +1,17 @@
+/*
+ * Copyright (C) 2015 GeoODK
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
+ * in compliance with the License. You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software distributed under the License
+ * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
+ * or implied. See the License for the specific language governing permissions and limitations under
+ * the License.
+ */
+
 package org.odk.collect.android.widgets;
 
 import android.app.Activity;
@@ -101,16 +115,18 @@ public class GeoTraceWidget extends QuestionWidget implements IBinaryWidget {
 		String s = prompt.getAnswerText();
 		if (s != null && !s.equals("")) {
 			dataAvailable = true;
-			createTraceButton.setText(getContext().getString(R.string.get_trace));
 			setBinaryData(s);
-		}else{
 		}
+
 		updateButtonLabelsAndVisibility(dataAvailable);
-		
 	}
 	
 	private void updateButtonLabelsAndVisibility(boolean dataAvailable) {
-		
+		if(dataAvailable){
+			createTraceButton.setText(getContext().getString(R.string.geotrace_view_change_location));
+		}else{
+			createTraceButton.setText(getContext().getString(R.string.get_trace));
+		}
 	}
 
 	@Override
