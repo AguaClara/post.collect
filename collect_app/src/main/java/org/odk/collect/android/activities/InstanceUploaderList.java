@@ -133,6 +133,10 @@ public class InstanceUploaderList extends ListActivity implements
 							.logAction(this, "uploadButton",
 									Integer.toString(mSelected.size()));
 
+					Intent intent=new Intent();
+					intent.setAction("org.odk.collect.android.activities.COLLECT");
+					startActivity(intent);
+
 					if (mSelected.size() > 0) {
 						// items selected
 						uploadSelectedFiles();
