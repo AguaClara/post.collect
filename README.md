@@ -27,4 +27,4 @@ top of the `collect/settings.gradle` file.
 Then, import the `collect/build.gradle` file into Android Studio.
 >>>>>>> d546772ae3d2d2a31c62a7e5b99c18a61c6b02eb
 
-Currently, the operators use the [regular ODK Collect app](https://play.google.com/store/apps/details?id=org.odk.collect.android&hl=en) rather than this fork. However, with a fork, we could make installation simpler, eliminate some of the unneccessary options and automatically update the forms on the operators' local device. 
+Currently, the operators use the [regular ODK Collect app](https://play.google.com/store/apps/details?id=org.aguaclara.post.collect&hl=en) rather than this fork. However, with a fork, we could make installation simpler, eliminate some of the unneccessary options and automatically update the forms on the operators' local device. 

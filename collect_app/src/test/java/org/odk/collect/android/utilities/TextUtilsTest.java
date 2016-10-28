@@ -1,4 +1,4 @@
-package org.odk.collect.android.utilities;
+package org.aguaclara.post.collect.utilities;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
