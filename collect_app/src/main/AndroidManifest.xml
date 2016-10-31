@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
+    This is a forked version of the ODK collect app. It is maintained by a team of students at Cornell
+    University part of the AguaClara program. It is designed to facilitate water treatment plant
+    data tracking.
+
      Copyright (C) 2009 University of Washington Licensed under the Apache
 	License, Version 2.0 (the "License"); you may not use this file except in
 	compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -10,7 +14,7 @@
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="org.odk.collect.android"
+    package="org.aguaclara.post.collect"
     android:versionCode="1058"
     android:versionName="1.4.8"
 
@@ -46,9 +50,9 @@
     -->
 
     <permission
-          android:name="org.odk.collect.android.permission.MAPS_RECEIVE"
+          android:name="org.aguaclara.post.collect.permission.MAPS_RECEIVE"
           android:protectionLevel="signature" />
-    <uses-permission android:name="org.odk.collect.android.permission.MAPS_RECEIVE" />
+    <uses-permission android:name="org.aguaclara.post.collect.permission.MAPS_RECEIVE" />
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
 
     <uses-sdk android:minSdkVersion="13" android:targetSdkVersion="13" />
@@ -62,7 +66,7 @@
         android:smallScreens="true" />
 
     <application
-        android:name="org.odk.collect.android.application.Collect"
+        android:name="org.aguaclara.post.collect.application.Collect"
 		android:supportsRtl="true" 
         android:largeHeap="true"
         android:installLocation="auto"
@@ -73,12 +77,12 @@
 
         <provider
             android:exported="true"
-            android:name="org.odk.collect.android.provider.FormsProvider"
-            android:authorities="org.odk.collect.android.provider.odk.forms" />
+            android:name="org.aguaclara.post.collect.provider.FormsProvider"
+            android:authorities="org.aguaclara.post.collect.provider.odk.forms" />
         <provider
             android:exported="true"
-            android:name="org.odk.collect.android.provider.InstanceProvider"
-            android:authorities="org.odk.collect.android.provider.odk.instances" />
+            android:name="org.aguaclara.post.collect.provider.InstanceProvider"
+            android:authorities="org.aguaclara.post.collect.provider.odk.instances" />
 
         <activity
             android:name=".activities.MainMenuActivity"
@@ -173,7 +177,7 @@
             android:name=".activities.InstanceUploaderActivity"
             android:label="@string/app_name">
             <intent-filter>
-                <action android:name="org.odk.collect.android.activities.COLLECT"/>
+                <action android:name="@string/upload_intent"/>
             </intent-filter>
         </activity>
         <activity
@@ -256,7 +260,7 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
             <intent-filter>
-                <action android:name="org.odk.collect.android.FormSaved" />
+                <action android:name="org.aguaclara.post.collect.FormSaved" />
             </intent-filter>
         </receiver>
 

@@ -139,6 +139,7 @@
 <string name="toggle_selected">Toggle All</string>
 <string name="trigger">OK. Please continue.</string>
 <string name="uploading_data">Sending Form</string>
+<string name="upload_intent">org.aguaclara.post.collect.activities.COLLECT</string>
 <string name="url_error">Sorry, invalid URL!</string>
 <string name="username">Username</string>
 <string name="view_hierarchy">Go To Prompt</string>
