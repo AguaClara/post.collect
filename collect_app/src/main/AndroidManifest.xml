@@ -177,7 +177,7 @@
             android:name=".activities.InstanceUploaderActivity"
             android:label="@string/app_name">
             <intent-filter>
-                <action android:name="@string/upload_intent"/>
+                <action android:name="org.aguaclara.post.collect.activities.COLLECT"/> <!--"@string/upload_intent"-->
             </intent-filter>
         </activity>
         <activity
