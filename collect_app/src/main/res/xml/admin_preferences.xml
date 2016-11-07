@@ -195,7 +195,6 @@
 
     <PreferenceCategory android:title="@string/admin_advanced_settings">
         <ListPreference
-                android:id="@+id/form_processing_logic"
                 android:defaultValue="@string/default_form_processing_logic"
                 android:dialogTitle="@string/form_processing_logic"
                 android:entries="@array/form_processing_logic_entries"

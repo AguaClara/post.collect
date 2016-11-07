@@ -23,6 +23,7 @@ import org.aguaclara.post.collect.provider.InstanceProviderAPI;
 import org.aguaclara.post.collect.provider.InstanceProviderAPI.InstanceColumns;
 import org.aguaclara.post.collect.receivers.NetworkReceiver;
 import org.aguaclara.post.collect.utilities.CompatibilityUtils;
+import org.javarosa.core.services.Logger;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -132,6 +133,11 @@ public class InstanceUploaderList extends ListActivity implements
 							.getActivityLogger()
 							.logAction(this, "uploadButton",
 									Integer.toString(mSelected.size()));
+
+					Intent intent=new Intent();
+					intent.setAction(getString(R.string.upload_intent));
+					sendBroadcast(intent);
+					System.out.println("instance_uploader_activity: Broadcast sent");
 
 					if (mSelected.size() > 0) {
 						// items selected
