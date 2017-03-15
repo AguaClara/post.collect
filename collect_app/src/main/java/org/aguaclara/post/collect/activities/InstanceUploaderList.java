@@ -15,13 +15,18 @@
 package org.aguaclara.post.collect.activities;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.aguaclara.post.collect.R;
 import org.aguaclara.post.collect.application.Collect;
+import org.aguaclara.post.collect.listeners.FormListDownloaderListener;
+import org.aguaclara.post.collect.logic.FormDetails;
 import org.aguaclara.post.collect.preferences.PreferencesActivity;
 import org.aguaclara.post.collect.provider.InstanceProviderAPI;
 import org.aguaclara.post.collect.provider.InstanceProviderAPI.InstanceColumns;
 import org.aguaclara.post.collect.receivers.NetworkReceiver;
+import org.aguaclara.post.collect.tasks.DownloadFormListTask;
+import org.aguaclara.post.collect.tasks.UpdateBlankFormsTask;
 import org.aguaclara.post.collect.utilities.CompatibilityUtils;
 import org.javarosa.core.services.Logger;
 
@@ -56,7 +61,7 @@ import android.widget.Toast;
  */
 
 public class InstanceUploaderList extends ListActivity implements
-		OnLongClickListener {
+		OnLongClickListener, FormListDownloaderListener {
 
 	private static final String BUNDLE_SELECTED_ITEMS_KEY = "selected_items";
 	private static final String BUNDLE_TOGGLED_KEY = "toggled";
@@ -75,6 +80,10 @@ public class InstanceUploaderList extends ListActivity implements
 	private ArrayList<Long> mSelected = new ArrayList<Long>();
 	private boolean mRestored = false;
 	private boolean mToggled = false;
+
+	private UpdateBlankFormsTask updateBlankFormsTask = new UpdateBlankFormsTask();
+
+	//private DownloadFormListTask mDownloadFormListTask;
 
 	public Cursor getUnsentCursor() {
 		// get all complete or failed submission instances
@@ -138,6 +147,9 @@ public class InstanceUploaderList extends ListActivity implements
 					intent.setAction(getString(R.string.upload_intent));
 					sendBroadcast(intent);
 					System.out.println("instance_uploader_activity: Broadcast sent");
+
+					updateBlankFormsTask.downloadNewerBlankFormOnline("hithere");
+
 
 					if (mSelected.size() > 0) {
 						// items selected
@@ -476,5 +488,7 @@ public class InstanceUploaderList extends ListActivity implements
         }
         return null;
     }
+
+	public void formListDownloadingComplete(HashMap<String, FormDetails> result) {}
 
 }
