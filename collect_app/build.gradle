@@ -79,6 +79,7 @@ android {
         sourceCompatibility javaVersion
         targetCompatibility javaVersion
     }
+    buildToolsVersion '25.0.2'
 }
 
 configurations.all {
