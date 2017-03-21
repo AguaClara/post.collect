@@ -19,16 +19,13 @@ import java.util.HashMap;
 
 import org.aguaclara.post.collect.R;
 import org.aguaclara.post.collect.application.Collect;
-import org.aguaclara.post.collect.listeners.FormListDownloaderListener;
 import org.aguaclara.post.collect.logic.FormDetails;
 import org.aguaclara.post.collect.preferences.PreferencesActivity;
 import org.aguaclara.post.collect.provider.InstanceProviderAPI;
 import org.aguaclara.post.collect.provider.InstanceProviderAPI.InstanceColumns;
 import org.aguaclara.post.collect.receivers.NetworkReceiver;
-import org.aguaclara.post.collect.tasks.DownloadFormListTask;
-import org.aguaclara.post.collect.tasks.UpdateBlankFormsTask;
+import org.aguaclara.post.collect.POST.UpdateBlankFormsTask;
 import org.aguaclara.post.collect.utilities.CompatibilityUtils;
-import org.javarosa.core.services.Logger;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -61,7 +58,7 @@ import android.widget.Toast;
  */
 
 public class InstanceUploaderList extends ListActivity implements
-		OnLongClickListener, FormListDownloaderListener {
+		OnLongClickListener{
 
 	private static final String BUNDLE_SELECTED_ITEMS_KEY = "selected_items";
 	private static final String BUNDLE_TOGGLED_KEY = "toggled";
@@ -148,7 +145,7 @@ public class InstanceUploaderList extends ListActivity implements
 					sendBroadcast(intent);
 					System.out.println("instance_uploader_activity: Broadcast sent");
 
-					updateBlankFormsTask.downloadNewerBlankFormOnline("hithere");
+					updateBlankFormsTask.downloadNewerBlankForms();
 
 
 					if (mSelected.size() > 0) {
